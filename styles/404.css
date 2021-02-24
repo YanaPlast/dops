@@ -1,0 +1,231 @@
+html, body {
+    height:100%;
+}
+#body-inner{
+    height: 100%;
+    -webkit-flex-direction: column;    
+    flex-direction: column;    
+}
+
+#content{
+    -webkit-flex: 1; 
+    -ms-flex: 1; 
+    flex: 1;    
+}
+
+#info .content-container{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;    
+}
+#info .content-container, #info .content-container.img{
+    background-image: url('../images/image-404.png');
+}
+#info .content-container.webp{
+    background-image: url('../images/image-404.webp');
+}
+#info .columns{
+    -webkit-flex-direction: row-reverse;    
+    flex-direction: row-reverse;  
+    min-height: 600px;
+    margin: 40px 0;
+}
+#info h1{
+    font-size: 50px;
+    line-height: 54px;
+    text-align: left;
+    margin: 0 0 40px;
+}
+#info .text{
+    width: 72%;
+    padding: 0 0 0 40px;
+    margin: 0 0 60px;
+}
+.text p, .text li{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-align: left;
+}
+.text p{
+    margin: 0 0 20px;    
+}
+.text ul{
+    margin: 0 0 15px;
+}
+.text ol{
+    list-style: decimal inside;
+    margin: 0 0 15px;
+}
+.text li{
+    margin: 0 0 5px;
+}
+.text ul li{
+    position: relative;    
+    padding: 0 0 0 30px;    
+}
+.text ul li:before{
+    content: "\f00c";
+    font-family: fontawesome !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #31c488;    
+}
+.text p span:not(.nowrap), .text li span:not(.nowrap){
+    font-weight: 600;
+}
+.text a{
+    font-weight: 600;
+    text-decoration: underline;
+}
+.text a:hover{
+    text-decoration: none;
+}
+
+#footer{
+    position: relative;
+    background: #2c2c2c;
+}
+#footer .columns{
+    -webkit-justify-content: space-between;
+    justify-content: space-between; 
+    padding: 40px 0 20px;
+}
+#footer .columns > div{
+    width: 33.33%;
+}
+#footer .logo{
+    margin: 0;
+}
+#footer .logo p{
+    width: 100%;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #999999;
+    text-align: left;
+    margin: 0 0 5px;
+}
+#footer .logo p.name{
+    font-size: 28px;
+    line-height: 30px;
+    font-weight: 600;    
+    color: #ffffff;
+    text-transform: uppercase;
+}
+#footer .info{
+    padding: 0 20px;
+}
+#footer .info p{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 400;
+    color: #999999; 
+    text-align: center;
+}
+#footer .phone-block p{
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #999999;   
+    margin: 0 0 5px;
+}
+#footer a{
+    display: block;
+}
+#footer .phone-block a.phone{
+    font-size: 28px;
+    line-height: 30px;
+    font-weight: 600;    
+    color: #ffffff;    
+}
+#footer #docs{
+    margin: 30px 0 0;
+}
+#footer #docs a{
+    text-decoration: underline;
+    margin: 5px 0 0;
+}
+#footer #docs a:hover{
+    text-decoration: none;
+}
+#footer #copyright{
+    border-top: 2px solid #343434;
+    padding: 40px 0;    
+}
+#footer #copyright p{
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 18px;
+    color: #999999;
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+    #info .text{
+        width: 65%;
+    }    
+    #footer .columns{
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;        
+    }
+    #footer .columns .logo, #footer .columns .info{
+        width: 50%;
+    }
+    #footer .info{
+        padding: 0 0 0 20px;
+    }
+    #footer .info p{
+        text-align: right;
+    }
+    #footer .columns .phone-block{
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px){
+    #info .content-container{
+        background-position: center bottom;
+        background-size: auto 300px;        
+    }
+    #info .columns{
+        min-height: 0;
+        padding: 0 0 300px;
+    }
+    #info .text{
+        width: 100%;
+        padding: 0;
+        margin: 0 0 20px;
+    }
+    #footer .columns{
+        -webkit-flex-direction: column;
+        flex-direction: column;        
+    }
+    #footer .columns > div{
+        width: 100%;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+    #footer .logo p{
+        text-align: center;
+    }
+}
+@media (max-width: 479px) {
+    #info .columns{
+        margin: 20px 0;
+    }
+    #info h1{
+        font-size: 30px;
+        line-height: 32px;
+        margin: 0 0 20px;
+    }
+}
