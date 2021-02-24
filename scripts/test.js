@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    // Форма отправки отзыва
+
     $('#feedback-form #send-form').on('click', function(event) {
         event.preventDefault();
         var request_info = [];
@@ -18,5 +20,23 @@ $(document).ready(function(){
             }
         });
     });  
+
+    // отправить книгу 
+    $('#book-modal #get-book').on('click', function(event) {
+        event.preventDefault();
+        var info = [];
+        info.push($('#book-modal input[type="email"]').val());
+        $.ajax({
+            url: '/scripts/sendEmail.php',
+            type: 'post',
+            data: {info: info},
+            success: function(reply){
+                $('#book-modal input[type="email"]').val('');
+                $('#message .message-text').text('Книга отправлена на указанный email!');
+                $('#success').click();
+            }
+        });
+    });
+
 
 });
