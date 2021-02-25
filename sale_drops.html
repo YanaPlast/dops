@@ -1,0 +1,1267 @@
+<!-- <?php
+session_start();
+
+$Month_r = array(
+    "01" => "января",
+    "02" => "февраля",
+    "03" => "марта",
+    "04" => "апреля",
+    "05" => "мая",
+    "06" => "июня",
+    "07" => "июля",
+    "08" => "августа",
+    "09" => "сентября",
+    "10" => "октября",
+    "11" => "ноября",
+    "12" => "декабря");
+
+$date_current = explode(".", date("d.m", strtotime("+1 DAY")));
+$date_digits = date("d.m", strtotime("+1 DAY"));
+$rus_month = $Month_r[$date_current[1]];
+$rus_date = $date_current[0] . '&nbsp;' . $rus_month;
+$yr = date("Y");
+
+if (array_key_exists('url', $_SESSION) && !empty($_SESSION['url'])) {
+    $url = $_SESSION['url'];
+} else {
+    $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    $_SESSION['url'] = $url;
+}
+
+// Backgrounds
+$webp = 'img';
+if (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+    $webp = 'webp';
+}
+
+$app->getSitePageActiveLastModified();
+
+$gtm_id = $app->getVar('gtm_id') ? $app->getVar('gtm_id') : 'M6NT4KK';
+
+$gtm_head = $app->gtm_head($gtm_id, 0);
+$gtm_head .= $app->getVar('goo_verify') ? $app->getVar('goo_verify') : '';
+$gtm_head .= $app->getVar('ya_verify') ? $app->getVar('ya_verify') : '';
+
+$gtm_body = $app->gtm_body($gtm_id);
+
+
+$h1 = 'Ручной трубогиб Гиббон';
+$subtitle = 'Цепная передача. Профессиональная модель';
+$title = 'Купить ручной профилегиб Гиббон с цепью по цене 6990 руб';
+$description = 'Ручной профилегиб Гиббон от производителя. Купить за 6990 - цена со скидкой! Цепной привод на 2 вала, 16 подшипников - профиль 60х40 гнется без усилий. Ровные дуги с точностью до 1 мм.';
+$keywords = 'купить, ручной, профилегиб, гиббон, цена';
+$og_title = 'Ручной профилегиб Гиббон с цепью - купить за 6990 руб';
+$og_description = 'Купить цепной профилегиб Гиббон по цене производителя. Для профилей до 60х40 мм. Цепь, 16 подшипников, каленые валы 10.9, линейка повторяемости и усиленный ходовой винт. Цена - от 6990 руб.';
+$offer_0 = 'Ручной профилегиб Гиббон с цепью. Цена - 6990 руб. Для профилей от 10х10 до 60х40. Цепной привод - прокат дуг без усилий. Каленые валы 10.9, линейка повторяемости, закаленный ходовой винт.';
+$offer_1 = 'Цепной профилегиб Гиббон. Модель для профи: 16 подшипников, прорезиненная ручка. Цена - 7490 руб. Для профилей от 10х10 до 60х40. Цепной привод, каленые валы 10.9, линейка повторяемости, закаленный ходовой винт.';
+$delivery_title = '';
+$delivery_geo_text = '';
+$models_show = '';
+$model_name = 'gibbon';
+$model_rus = 'Гиббон';
+$model_id = 'ZiV77glpjsW2adnnWCWzZ3';
+$model_img = 'images/gibbon.png';
+$model_price = '6 990';
+$model_discount = '50';
+$models_title = 'Выберите свой трубогиб';
+$models_subtitle = 'Сравните 2 модели';
+$select = '';
+$one_model = '';
+$hide_standart = '';
+$hide_pro = '';
+$active_standard = 'active';
+$active_pro = '';
+$selected_standard = 'selected';
+$selected_pro = '';
+$price_old = '13 990';
+
+$taboola = false;
+
+$result_title = 'Теплица, беседка, навес - своими руками';
+$result_subtitle = 'С профилегибом вы легко сделаете все это. И сэкономите!';
+$result_folder = '';
+
+foreach (['h1', 'subtitle', 'title', 'description', 'keywords', 'og_title', 'og_description', 'offer_0', 'offer_1', 'delivery_title', 'delivery_geo_text', 'models_show', 'models_title', 'models_subtitle', 'taboola', 'result_title', 'result_subtitle', 'result_folder'] as $var_name) {
+    if ($app->getVar($var_name)) {
+        ${$var_name} = $app->getVar($var_name);
+    }
+}
+
+if ($taboola) {
+    $canonical = 'https://trubogib-gibbon.ru';
+} else {
+    $canonical = $app->urlRelCanonical();
+}
+
+if ($models_show == ''){
+    $select = '
+        <select class="custom-list">
+            <option value="gibbon" selected>Трубогиб Гиббон</option>
+            <option value="gibbon_pro">Трубогиб Гиббон Про</option>
+        </select>
+    ';
+} else if ($models_show == 'gibbon_pro'){    
+    $model_name = 'gibbon_pro';
+    $model_rus = 'Гиббон Про';
+    $model_id = 'tdehLskNh4KXn1Fj0iJcu0';
+    $model_img = 'images/gibbon-pro.png';
+    $model_price = '7 490';
+    $price_old = '16 690';
+    $model_discount = '55';    
+    $models_title = 'Характеристики трубогиба Гиббон Про';
+    $models_subtitle = 'Акция -55%. Успей заказать';    
+    $one_model = 'one-model';
+    $hide_standart = 'hidden';
+    $active_standard = '';
+    $active_pro = 'active';
+    $selected_standard = '';
+    $selected_pro = 'selected';    
+    $canonical = 'https://trubogib-gibbon.ru';
+} else {  
+    $models_title = 'Характеристики трубогиба Гиббон';
+    $models_subtitle = 'Акция -50%. Успей заказать';    
+    $one_model = 'one-model';  
+    $hide_pro = 'hidden';
+    $canonical = 'https://trubogib-gibbon.ru';
+}
+
+?> -->
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+
+    <title><?= $title ?></title>
+    <meta name="description" content="<?= $description ?>"/>
+    <meta name="keywords" content="<?= $keywords ?>"/>
+
+    <link href="<?= $canonical ?>" rel="canonical"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Трубогиб Гиббон">
+    <meta property="og:url" content="<?= $canonical ?>">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="<?= $canonical ?>images/header.png">
+    <meta property="og:title" content="<?= $og_title ?>">
+    <meta property="og:description" content="<?= $og_description ?>">
+
+    <link rel="preload" href="styles/fonts/PT-Sans-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="styles/fonts/PT-Sans-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="styles/fonts/PT-Sans-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="styles/fonts/PT-Sans-Bold-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="dns-prefetch" href="//yastatic.net/">
+    <link rel="dns-prefetch" href="//google-analytics.com/">
+
+    <link rel="stylesheet" href="styles/critical.css">
+
+<!--     <link rel="stylesheet" type="text/css" href="styles/demo.css" />  -->
+<!--         <link rel="stylesheet" type="text/css" href="styles/tabs.css" /> -->
+<!--         <link rel="stylesheet" type="text/css" href="styles/tabstyles.css" /> -->
+    <!--[if lt IE 9]>
+    <script src="scripts/html5.js"></script> <![endif]-->
+
+<!--     <?= $gtm_head ?> -->
+
+</head>
+
+<body>
+
+<!-- <?= $gtm_body ?> -->
+
+<header id="header">
+
+    <div id="top">
+        <div class="content-container">
+            <div class="columns">
+                <div class="logo columns">
+                    <a class="img-container" href="#">
+                        <picture>
+                            <source srcset="images/logo.webp" type="image/webp">
+                            <img src="images/logo.png" alt="" title="">
+                        </picture>           
+                    </a>
+                    <p>Официальный сайт производителя</p>
+                </div>
+                <div class="menu-container">
+                    <span>&nbsp;</span>
+                    <ul class="menu columns">
+                        <li><a class="button-scroll" href="#advantages">Преимущества</a></li>
+                        <li><a class="button-scroll" href="#models">Модели</a></li>
+                        <li><a class="button-scroll" href="#real-photos">Фото</a></li>
+                        <li><a class="button-scroll" href="#feedback">Отзывы</a></li>
+                        <li class="mobile">
+                            <a href="#order-modal" class="fancybox">Заказать</a>
+                        </li>
+                        <li class="mobile">
+                            <a class="phone" href="tel:88003028415"><i class="fa fa-phone"></i> 8 800 302 84 15</a>
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="phone-block">
+                    <a class="phone" href="tel:88003028415">8 800 302 84 15</a>
+                    <p>Звонок по России бесплатный</p>               
+                </div>
+            </div>
+        </div><!-- end of content-container -->
+    </div><!-- end of top -->
+
+
+
+</header><!-- end of header -->
+
+<main id="content">
+
+    <div id="info-message">
+         <div class="content-container">
+            <p class="title"><span>Заказ принят!</span class="green"><br>В ближайшее время вам перезвонит менеджер.</p>
+            <p class="subtitle">При заказе с трубогибом - скидка на дополнительные товары.</p>
+         </div>
+        
+    </div>
+
+    <div id="adds">
+        <div class="content-container">
+
+ <section>
+    <div class="tabs tabs-style-shape">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#section-shape-1">
+                       <span>Центробой</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#section-shape-2">
+                        <span>Адаптер для дрели</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#section-shape-3">
+                        <span>Магнитный угол</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="content-wrap">
+            <section id="section-shape-1">
+                <div class="adds-card">
+                     <div class="columns"> 
+                        <div class="img-container">
+                            <picture>
+                                <source class="lazy" data-src="images/centroboy.webp" type="image/webp">
+                                <img class="lazy" data-src="images/centroboy.png" alt=""/>
+                            </picture>                            
+                        </div>
+                        <div class="text">
+                            <div class="title-container">
+                                <p class="block-title">Центробой</p>
+                                <p class="block-subtitle">Прокат профиля без ваших усилий. В 3 раза быстрее.</p>
+                            </div> 
+                            <p>Используйте дрель, чтобы ускорить работу.</p>
+                            <ol>
+                                <li>Вместо ручки трубогиба установите вал с шестигранником.</li>
+                                <li>Шестигранник вставьте в дрель или перфоратор.</li>
+                                <li>Наслаждайтесь работой.</li>
+                            </ol>
+                            <p>Подходит для дрели мощностью от <span class="nowrap">750 Вт</span>.</p>
+                            <div class="prices">
+                                <p class="old-price"><span>890</span> руб.</p>
+                                <p class="new-price"><span>590</span> руб.</p>
+                            </div>                         
+                            <div class="button-container">
+                                <div class="button-container">
+                                    <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+            </section>
+            <section id="section-shape-2">
+                
+                <div class="adds-card">
+                     <div class="columns"> 
+                        <div class="img-container">
+                            <picture>
+                                <source class="lazy" data-src="images/adapter.webp" type="image/webp">
+                                <img class="lazy" data-src="images/adapter.png" alt=""/>
+                            </picture>                            
+                        </div>
+                        <div class="text">
+                            <div class="title-container">
+                                <p class="block-title">Адаптер для дрели</p>
+                                <p class="block-subtitle">Прокат профиля без ваших усилий. В 3 раза быстрее.</p>
+                            </div> 
+                            <p>Используйте дрель, чтобы ускорить работу.</p>
+                            <ol>
+                                <li>Вместо ручки трубогиба установите вал с шестигранником.</li>
+                                <li>Шестигранник вставьте в дрель или перфоратор.</li>
+                                <li>Наслаждайтесь работой.</li>
+                            </ol>
+                            <p>Подходит для дрели мощностью от <span class="nowrap">750 Вт</span>.</p>
+                            <div class="prices">
+                                <p class="old-price"><span>890</span> руб.</p>
+                                <p class="new-price"><span>590</span> руб.</p>
+                            </div>                         
+                            <div class="button-container">
+                                <div class="button-container">
+                                    <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+            </section>
+            <section id="section-shape-3">
+                
+                <div class="adds-card">
+                     <div class="columns"> 
+                        <div class="img-container">
+                            <picture>
+                                <source class="lazy" data-src="images/ugol.webp" type="image/webp">
+                                <img class="lazy" data-src="images/ugol.png" alt=""/>
+                            </picture>                            
+                        </div>
+                        <div class="text">
+                            <div class="title-container">
+                                <p class="block-title">Магнитный угол</p>
+                                <p class="block-subtitle">Прокат профиля без ваших усилий. В 3 раза быстрее.</p>
+                            </div> 
+                            <p>Используйте дрель, чтобы ускорить работу.</p>
+                            <ol>
+                                <li>Вместо ручки трубогиба установите вал с шестигранником.</li>
+                                <li>Шестигранник вставьте в дрель или перфоратор.</li>
+                                <li>Наслаждайтесь работой.</li>
+                            </ol>
+                            <p>Подходит для дрели мощностью от <span class="nowrap">750 Вт</span>.</p>
+                            <div class="prices">
+                                <p class="old-price"><span>890</span> руб.</p>
+                                <p class="new-price"><span>590</span> руб.</p>
+                            </div>                         
+                            <div class="button-container">
+                                <div class="button-container">
+                                    <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+            </section>
+<!--             <section id="section-shape-4"><p>4</p></section>
+            <section id="section-shape-5"><p>5</p></section> -->
+        </div><!-- /content -->
+    </div><!-- /tabs -->
+ </section>
+
+
+        
+        </div><!-- end of content-container -->
+    </div><!-- end of adds -->
+
+
+    <style>
+        
+        .tabs {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+            font-weight: 400;
+            font-size: 24px;
+            overflow: visible;
+        }
+
+        /* Nav */
+        .tabs nav {
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .tabs nav ul {
+            position: relative;
+            display: flex;
+            margin: 0 auto;
+            padding: 0;
+            max-width: 1200px;
+            list-style: none;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .tabs nav ul li {
+            position: relative;
+            z-index: 1;
+            display: block;
+            margin: 0;
+            text-align: center;
+            -webkit-flex: 1;
+            -moz-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+        .tabs nav a {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            line-height: 2.5;
+        }
+
+        .tabs nav a span {
+            vertical-align: middle;
+            font-size: 21px;
+        }
+
+        .tabs nav li.tab-current a {
+            color: #74777b;
+        }
+
+        .tabs nav a:focus {
+            outline: none;
+        }
+
+      
+        /* Content */
+        .content-wrap {
+            position: relative;
+        }
+
+        .content-wrap section {
+            display: none;
+            margin: 0 auto;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .content-wrap section.content-current {
+            display: block;
+            -webkit-box-shadow: 4px 4px 18px 0px rgba(34, 60, 80, 0.2);
+            -moz-box-shadow: 4px 4px 18px 0px rgba(34, 60, 80, 0.2);
+            box-shadow: 4px 4px 18px 0px rgba(34, 60, 80, 0.2);
+
+        }
+        .content-wrap section p {
+            margin: 0;
+            padding: 0.75em 0;
+            /*color: rgba(40,44,42,0.05);*/
+            color: rgb(44, 44, 44);
+            font-weight: 400;
+            font-size: 19px;
+            line-height: 1;
+        }
+
+        /* Fallback */
+        .no-js .content-wrap section {
+            display: block;
+            padding-bottom: 2em;
+            border-bottom: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .no-flexbox nav ul {
+            display: block;
+        }
+
+        .no-flexbox nav ul li {
+            min-width: 15%;
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 58em) {
+            .tabs nav a.icon span {
+                display: none;
+            }
+            .tabs nav a:before {
+                margin-right: 0;
+            }
+        }
+
+       /* ================== shape ====================*/
+
+       .tabs-style-shape {
+        width: 100%;
+       }
+
+/*       .tabs-style-shape nav ul li {
+        margin: 0 3em;
+       }*/
+
+       .tabs-style-shape nav ul li:first-child {
+        margin-left: 0;
+       }
+
+       .tabs-style-shape nav ul li.tab-current {
+        z-index: 100;
+       background: #f1f1f1;
+       }
+
+       .tabs-style-shape nav li a {
+        overflow: visible;
+/*        margin: 0 -3em 0 0;*/
+        padding: 0;
+        color: #fff;
+        font-weight: 600;
+       }
+
+       .tabs-style-shape nav li:first-child a span {
+/*        padding-left: 2em;*/
+        border-radius: 0;
+       }
+
+       .tabs-style-shape nav li:last-child a span {
+        padding-right: 2em;
+/*        border-radius: 0 30px 0 0;*/
+       }
+       .tabs-style-shape nav li a span {
+        display: block;
+        overflow: hidden;
+        padding: 0.65em 0;
+        background-color: #bdc2c9;
+        white-space: nowrap;
+       }
+
+       .tabs-style-shape nav li a:hover span {
+        background-color: #1a6647;
+       }
+
+       /* Make only shape clickable */
+       .tabs-style-shape nav li a svg {
+        pointer-events: none;
+       }
+
+       .tabs-style-shape nav li a svg use {
+        pointer-events: auto;
+       }
+
+       .tabs-style-shape nav li.tab-current a span,
+       .tabs-style-shape nav li.tab-current a svg {
+        -webkit-transition: none;
+        transition: none;
+       }
+
+       .tabs-style-shape nav li.tab-current a span {
+        background: #fff;
+       }
+
+       .tabs-style-shape nav li.tab-current a svg {
+        fill: #fff;
+       }
+
+       .tabs-style-shape .content-wrap {
+        background: #fff;
+       }
+
+       @media screen and (max-width: 58em) {
+        .tabs-style-shape nav ul {
+            display: block;
+            padding-top: 1.5em;
+        }
+        .tabs-style-shape nav ul li {
+            display: block;
+            margin: -1.25em 0 0;
+            -webkit-flex: none;
+            flex: none;
+        }
+        .tabs-style-shape nav ul li a {
+            margin: 0;
+        }
+        .tabs-style-shape nav ul li svg {
+            display: none;
+        }
+        .tabs-style-shape nav ul li a span {
+            padding: 1.25em 0 2em !important;
+            border-radius: 30px 30px 0 0 !important;
+            box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+            line-height: 1;
+        }
+        .tabs-style-shape nav ul li:last-child a span {
+            padding: 1.25em 0 !important;
+        }
+        .tabs-style-shape nav ul li.tab-current {
+            z-index: 1;
+        }
+       }
+
+    </style>
+
+    <div id="special-offer">
+        <div class="content-container">
+            <p class="title"><span>Спецпредложение</span></p>
+                <div class="columns">
+                    <div class="img-container">
+                        <picture>
+                            <source class="lazy" data-src="images/ulitka.webp" type="image/webp">
+                            <img class="lazy" data-src="images/ulitka.png" alt=""/>
+                        </picture>                            
+                    </div>
+                    <div class="description">
+                        <p class="subtitle">При покупке трубогиба гиббон<br> станок Улитка со скидкой ХХХ%.</p>
+<!--                         <div class="line"></div> -->
+                        <div class="prices">
+                            <p class="new-price"><span>590</span> руб.</p>
+                            <p class="old-price"><span>890</span> руб.</p>
+                        </div> 
+                        <div class="text">
+                            <b>При покупке трубогиба гиббон - станок Улитка <span class="red">со скидкой ХХХ%.</span></b><br><br>
+                            Улитка - популярный станок холодной ковки для фигурных завитков.<br>
+                            Закажите "Улитку" вместе с трубогибом Гиббон - вы получите дополнительную скидку и сэкономите на доставке. Мы отправим эти товары одним заказом.<br><br>
+                            <b>Это ограниченное предложение!</b> Рекомендуем добавить товар сейчас и спокойно изучить сайт  {сайт доп товара}.<br><b>Пока мы не отправили вашу посылку - скидка на станок "Улитка" в силе!</b>
+                        </div>
+                        <div class="button-container">
+                            <div class="button-container">
+                                <!-- <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a> Как должно быть-->
+                                <a href="#book-modal" class="button fancybox">Заказать</a>
+                            </div>                            
+                        </div>
+                    </div>
+                </div> 
+        </div><!-- end of content-container -->
+    </div><!-- end of content-container -->
+
+        <!-- <div id="special-offer-2">
+            <div class="content-container">
+                <p class="title"><span>Спецпредложение</span></p>
+                    <div class="offer-card">
+                                        <div class="columns">
+                                            <div class="img-container">
+                                                <picture>
+                                                    <source class="lazy" data-src="images/ulitka.webp" type="image/webp">
+                                                    <img class="lazy" data-src="images/ulitka.png" alt=""/>
+                                                </picture>                            
+                                            </div>
+                                            <div class="description">
+                                                <p class="subtitle">При покупке трубогиба гиббон - станок Улитка со скидкой ХХХ%.</p>
+                                                <div class="prices">
+                                                    <p class="new-price"><span>590</span> руб.</p>
+                                                    <p class="old-price"><span>890</span> руб.</p>
+                                                </div> 
+                                                <div class="text">
+                                                    <b>При покупке трубогиба гиббон - станок Улитка <span class="red">со скидкой ХХХ%.</span></b><br><br>
+                                                    Улитка - популярный станок холодной ковки для фигурных завитков.<br>
+                                                    Закажите "Улитку" вместе с трубогибом Гиббон - вы получите дополнительную скидку и сэкономите на доставке. Мы отправим эти товары одним заказом.<br><br>
+                                                    <b>Это ограниченное предложение!</b> Рекомендуем добавить товар сейчас и спокойно изучить сайт  {сайт доп товара}.<br><b>Пока мы не отправили вашу посылку - скидка на станок "Улитка" в силе!</b>
+                                                </div>
+                                                <div class="button-container">
+                                                    <div class="button-container">
+                                                        <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a>
+                                                    </div>                            
+                                                </div>
+                                            </div>
+                                        </div>
+                    </div> 
+            </div> end of content-container 
+        </div> end of content-container --> 
+
+</main><!-- end of special-offer -->
+
+
+<style>
+
+    #adds {
+        padding-bottom: 90px;
+    }
+    #info-message p.title {
+        margin: 70px 0 50px;
+        line-height: 1.3;
+    }
+/*    #info-message p.subtitle {
+        color: #00477e;
+    }*/
+    #info-message p.title span,  #special-offer p.title span {
+        color: #1a6647;
+    }
+    #adds .block-title p, #adds .text p {
+        color: rgb(44, 44, 44);
+    }
+    #adds .columns {
+        overflow: hidden;
+    }
+    #adds .adds-card  {
+        background-color: #c9f5df;
+/*        margin: 20px 15px 80px;*/
+/*        box-shadow:1px 1px 13px 0px rgba(0,0,0,0.2);
+        -webkit-box-shadow:1px 1px 13px 0px rgba(0,0,0,0.2);
+        -moz-box-shadow:1px 1px 13px 0px rgba(0,0,0,0.2);*/
+
+    }
+    #adds .adds-card .img-container {
+        -webkit-display: flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;    
+        justify-content: center;    
+        width: 40%;
+        padding: 20px;
+        background: #f7f7f7;
+        box-shadow:11px 1px 18px 0px rgba(0,0,0,0.1);
+        -webkit-box-shadow:11px 1px 18px 0px rgba(0,0,0,0.1);
+        -moz-box-shadow:11px 1px 18px 0px rgba(0,0,0,0.1);
+/*        border: 2px solid #e5e5e5;*/
+    }
+    #adds .adds-card .text{
+        width: 60%;
+        padding: 40px;
+    }
+    #adds .adds-card .text .title-container{
+        margin-top: 0;
+        border-bottom-color: #666666;
+    }
+    #adds .text p.block-subtitle {
+        color: #666666;
+    }
+    #adds .text li {
+        position: relative;
+        padding: 0 0 0 30px;
+        list-style: none;
+        font-size: 19px;
+    }
+     #adds .text li:before {
+        content: "\f00c";
+        font-family: fontawesome !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #004681;
+     }
+    #adds .adds-card .prices{
+        -webkit-justify-content: flex-start;    
+        justify-content: flex-start;      
+    }
+    #adds .adds-card .prices p.old-price span{
+        font-weight: 400;
+    }
+    #adds .adds-card .button-container{
+        margin: 20px 0 0;
+    }
+    #adds .adds-card .button{
+        width: 250px;
+    }
+    #adds .adds-item {
+        height: 220px;
+        background-color: #f7f7f7;
+        margin: 10px 15px;
+        position: relative;
+        opacity: 0.5;
+        overflow: hidden;
+        box-shadow:1px 1px 13px 0px rgba(0,0,0,0.2);
+        -webkit-box-shadow:1px 1px 13px 0px rgba(0,0,0,0.2);
+        -moz-box-shadow:1px 1px 13px 0px rgba(0,0,0,0.2);
+    }
+    #adds .adds-item img {
+        object-fit: contain;
+        margin: 0 auto;
+    }
+    #adds .centroboy img {
+       margin-top: 10px;
+    }
+    .slider-nav {
+        width: 92%;
+        margin: 0 auto;
+    }
+    #adds .slick-next {
+        right: -50px;
+    }
+    #adds .slick-prev {
+        left: -50px;
+    }
+    #adds .slick-center  {
+        opacity: 1;     
+        background-color: #c9f5df;
+        transition: all 0.7s ease;
+    }
+    #adds .slick-center img {
+        transform: scale(1.1);
+        transition: all 1s ease;
+    }
+    #special-offer {
+        background: linear-gradient(30deg, #bbe7d5 30%, #ffffff 30%);
+/*        background-color: #ffffff;*/
+        padding-bottom: 60px;
+        box-shadow:1px 1px 13px 0px rgba(0,0,0,0.17);
+        -webkit-box-shadow:1px 1px 13px 0px rgba(0,0,0,0.17);
+        -moz-box-shadow:1px 1px 13px 0px rgba(0,0,0,0.17)
+    }
+    #special-offer p.title {
+        margin-bottom: 60px;
+    }
+    #special-offer p.subtitle {
+        text-align: left;
+        margin-bottom: 30px;
+     }
+    #special-offer .img-container  {
+        width: 40%;
+    }
+    #special-offer .description  {
+        width: 60%;
+        padding-left: 50px;
+    }
+    #special-offer .line {
+        width: 20%;
+        background-color: #1a6647;
+        height: 3px;
+        margin: 30px auto 30px 0;
+    }
+    #special-offer .prices {
+        justify-content: flex-start;
+    }
+    #special-offer .prices p {
+        margin-left: 0px !important;
+    }
+    #special-offer .button-container {
+        margin-top: 50px;
+    }
+    #special-offer .button-container .button {
+        width: 250px;
+    }
+
+    /*=====================================*/
+
+    #special-offer-2 {
+        background-color: #ffffff;
+        padding-bottom: 60px;
+    }
+    #special-offer-2 .offer-card {
+        background-color: #bbe7d5;
+        padding: 30px;
+    }
+    #special-offer-2 p.title {
+        margin-bottom: 60px;
+    }
+    #special-offer-2 p.subtitle {
+        text-align: left;
+        margin-bottom: 30px;
+     }
+    #special-offer-2 .img-container  {
+        width: 40%;
+        background-color: #ffffff;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #special-offer-2 .description  {
+        width: 60%;
+        padding-left: 60px;
+    }
+    #special-offer-2 .line {
+        width: 20%;
+        background-color: #1a6647;
+        height: 3px;
+        margin: 30px auto 30px 0;
+    }
+    #special-offer-2 .prices {
+        justify-content: flex-start;
+        margin-top: 0;
+    }
+    #special-offer-2 .prices p {
+        margin-left: 0px !important;
+    }
+    #special-offer-2 .button-container {
+        margin-top: 50px;
+    }
+    #special-offer-2 .button-container .button {
+        width: 250px;
+    }
+    #special-offer-2 .prices p.new-price {
+        color: #fa0000;
+    }
+</style>
+
+<footer id="footer">
+    <div class="content-container">
+        <div class="columns">
+            <div class="logo">
+                <p class="name">Трубогиб Гиббон</p>
+                <p>от завода производителя</p>
+            </div>
+            <div class="info">
+                <p>ИП Морозова А.Н. <br>ИНН 110313501942 <br>ОГРНИП 313110303600012</p>
+            </div>
+            <div class="phone-block">
+                <a class="phone" href="tel:88003028415">8 800 302 84 15</a>
+                <p>Звонок по России бесплатный</p>
+                <a class="mail" href="mailto:sale@trubogib-gibbon.ru">sale@trubogib-gibbon.ru</a>
+                <div id="docs">
+                    <a href="docs/offerta.pdf">Договор оферты</a>
+                    <a href="docs/confidentiality.pdf">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+        <div id="copyright">
+            <p>© <?= $yr; ?> "trubogib-gibbon.ru" Все права защищены.</p>
+            <p>Использование материалов разрешено только с согласия правообладателей.</p>
+            <p>Полное или частичное копирование сайта запрещено и преследуется по закону.</p>
+        </div>
+    </div><!-- end of content-container -->
+</footer><!-- end of footer -->
+
+<div id="order-model" class="form-popup">
+    <div class="form-container">
+        <div class="form-title">
+            <p class="offer">Заказать трубогиб
+                <span class="model-name"><?= $model_rus ?></span>
+                <span class="red">с выгодой <span class="discount"><?= $model_discount?></span>%</span> за
+                <span class="new-price nowrap"><span><?= $model_price?></span> руб.</span>
+            </p>
+        </div>
+        <div class="columns">
+            <div class="img-container">
+                <img src="<?= $model_img ?>" alt=""/>
+            </div>
+            <div class="form-body">
+                <form method="post" class="order-form">
+                    <input type="hidden" name="url" value="<?= $url ?>">
+                    <input type="hidden" class="model" value="<?= $model_name ?>" data-id="<?= $model_id ?>">
+                    <input type="hidden" class="comment" value="">
+                    <label class="custom-data custom-name">
+                        <input type="text" name="name" placeholder="Ваше имя" autocomplete="off">
+                        <span></span>
+                    </label>
+                    <label class="custom-data custom-phone">
+                        <input type="text" name="phone" placeholder="Ваш телефон" autocomplete="off">
+                        <span></span>
+                    </label>
+                    <label class="custom-checkbox">
+                        <input class="custom-checkbox_input" type="checkbox" autocomplete="off" data-dop="centroboy">
+                        <span class="custom-checkbox_check">+ центробой</span>
+                    </label>                    
+                    <label class="custom-checkbox">
+                        <input class="custom-checkbox_input" type="checkbox" autocomplete="off" data-dop="adapter">
+                        <span class="custom-checkbox_check">+ адаптер для дрели</span>
+                    </label>
+                    <label class="custom-checkbox">
+                        <input class="custom-checkbox_input" type="checkbox" autocomplete="off" data-dop="ugol">
+                        <span class="custom-checkbox_check">+ магнитный угол для сварки</span>
+                    </label>
+                    <input type="submit" value="Заказать" class="button">
+                    <p class="info">Мы свяжемся с Вами в течение <span class="nowrap">5 минут</span> и уточним детали
+                        доставки</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================================================================================================
+ -->
+<div id="book-modal" class="form-popup">
+    <div class="form-container">
+        <div class="columns"> 
+             <div class="text">
+                <p class="subtitle">
+                    Пока ваша посылка в пути, изучите электронную книгу <span class="nowrap">"Советы мудрого Гиббона"</span> с чертежами и рекомендациями.
+                </p>
+                <p>Оставьте, пожалуйста, свой e-mail. На него мы отправим вашу электронную книгу.</p>
+                 <form class="feedback-form" method="post">
+                    <label class="custom-data custom-email">
+                        <input type="email" name="email" placeholder="Введите ваш e-mail" autocomplete="off" id="feedback_email">
+                    </label>
+                    <input id="get-book" type="submit" class="button" value="Отправить">
+                 </form>
+             </div> 
+
+        </div>
+    </div>
+</div>
+
+<style>
+    #book-modal  {
+        width: 90%;
+        height: 70%;
+        position: relative;
+    }
+    #book-modal .form-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        background-image: url(images/gibbon-book.jpg);
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: cover;
+        border-radius: 0px;
+    }
+    #book-modal .form-container .columns {
+        width: 65%;
+        justify-content: flex-end;
+    }
+    #book-modal .form-container .text {
+        background-color: #ffffff;
+        opacity: 0.9;
+        width: 90%;
+        text-align: center;
+        padding: 40px;
+        border-radius: 40px;
+    }
+     #book-modal .text p {
+        text-align: center;
+     }
+    #book-modal .subtitle {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        font-family: inherit;
+        font-size: 30px;
+        line-height: 35px;
+        font-weight: 600;
+        color: inherit;
+        text-align: center;
+        margin: 0 0 40px;
+        padding: 0;
+        z-index: 10;
+    }
+    #book-modal .subtitle span {
+        color: #004681;
+    }
+    #book-modal .fancybox-close-small {
+        position: absolute;
+        color: #000000;
+        opacity: 1;
+        box-shadow:0px 0px 9px 0px rgba(0,0,0,0.22);
+        -webkit-box-shadow:0px 0px 9px 0px rgba(0,0,0,0.22);
+        -moz-box-shadow:0px 0px 9px 0px rgba(0,0,0,0.22);
+    }
+    #book-modal .fancybox-close-small:hover {
+        opacity: 0.7;
+    }
+    #book-modal .form-container form input[type="email"] {
+        display: block;
+        width: 70%;
+        height: 48px;
+        font-family: inherit;
+        font-size: 21px;
+        line-height: 30px;
+        font-weight: 400;
+        color: #c0c0c0;
+        margin: 40px auto 15px;
+        padding: 9px 20px 9px 20px;
+        text-align: left;
+        background: #f7f7f7;
+        outline: none;
+        border: 2px solid #dedede;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-transition: border 0.2s linear, box-shadow 0.2s linear;
+        -moz-transition: border 0.2s linear, box-shadow 0.2s linear;
+        transition: border 0.2s linear, box-shadow 0.2s linear;
+    }
+    #book-modal .form-container form input[type="email"]:focus {
+        color: #999999;
+        border-color: #008851;
+    }
+    #book-modal .form-container form input[type="submit"] {
+        width: 250px;
+        opacity: 1 !important;
+    }
+</style>
+
+<div id="order-modal" class="form-popup">
+    <div class="form-container">
+        <div class="form-title">
+            <p class="offer">Заказать трубогиб
+                <span class="model-name"><?= $model_rus ?></span>
+                <span class="red">с выгодой <span class="discount"><?= $model_discount?></span>%</span> за
+                <span class="new-price nowrap"><span><?= $model_price?></span> руб.</span>
+            </p>
+        </div>
+        <div class="columns">
+            <div class="img-container">
+                <img src="<?= $model_img ?>" alt=""/>
+            </div>
+            <div class="form-body">
+                <form method="post" class="order-form">
+                    <input type="hidden" name="url" value="<?= $url ?>">
+                    <input type="hidden" class="model" value="<?= $model_name ?>" data-id="<?= $model_id ?>">
+                    <input type="hidden" class="comment" value="">
+                    <?=$select?>
+                    <label class="custom-data custom-name">
+                        <input type="text" name="name" placeholder="Ваше имя" autocomplete="off">
+                        <span></span>
+                    </label>
+                    <label class="custom-data custom-phone">
+                        <input type="text" name="phone" placeholder="Ваш телефон" autocomplete="off">
+                        <span></span>
+                    </label>
+                    <label class="custom-checkbox">
+                        <input class="custom-checkbox_input" type="checkbox" autocomplete="off" data-dop="centroboy">
+                        <span class="custom-checkbox_check">+ центробой</span>
+                    </label>                    
+                    <label class="custom-checkbox">
+                        <input class="custom-checkbox_input" type="checkbox" autocomplete="off" data-dop="adapter">
+                        <span class="custom-checkbox_check">+ адаптер для дрели</span>
+                    </label>
+                    <label class="custom-checkbox">
+                        <input class="custom-checkbox_input" type="checkbox" autocomplete="off" data-dop="ugol">
+                        <span class="custom-checkbox_check">+ магнитный угол для сварки</span>
+                    </label>
+                    <input type="submit" value="Заказать" class="button">
+                    <p class="info">Мы свяжемся с Вами в течение <span class="nowrap">5 минут</span> и уточним детали
+                        доставки</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div id="quick-order" class="form-popup">
+    <div class="form-container">
+        <div class="form-title">
+            <p class="offer">Оформить заказ</p>
+        </div>   
+        <div class="form-body">
+            <form method="post" class="order-form">
+                <input type="hidden" name="url" value="<?= $url ?>">
+                <input type="hidden" class="model" value="<?= $model_name ?>" data-id="<?= $model_id ?>">  
+                <input class="custom-checkbox_input hidden" type="checkbox" data-dop="centroboy">
+                <input class="custom-checkbox_input hidden" type="checkbox" data-dop="adapter">
+                <input class="custom-checkbox_input hidden" type="checkbox" data-dop="ugol">
+                <label class="custom-data custom-name">
+                    <input type="text" name="name" placeholder="Ваше имя" autocomplete="off">
+                    <span></span>
+                </label>
+                <label class="custom-data custom-phone">
+                    <input type="text" name="phone" placeholder="Ваш телефон" autocomplete="off">
+                    <span></span>
+                </label>
+                <input type="submit" value="Отправить" class="button" >
+                <p class="info">Мы свяжемся с Вами в течение 5 минут и уточним детали доставки</p>
+            </form>
+        </div>
+    </div>
+</div>    
+
+<div id="message" class="form-popup">
+    <div class="form-container">
+        <div class="form-title">
+            <p class="offer"></p>
+        </div>
+        <div class="form-body">
+            <p class="message-text"></p>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="fancy/jquery.fancybox.min.css"/>
+<link rel="stylesheet" href="styles/slick-slider.min.css"/>
+
+<!-- <?= $app->isGeo() ? '<link rel="stylesheet" href="styles/geo-ip.css" />' : '' ?> -->
+
+<script src="scripts/jquery.js"></script>
+<script src="fancy/jquery.fancybox.min.js"></script>
+<script src="scripts/slick-slider.min.js"></script>
+<script src="scripts/jquery.maskedinput.min.js"></script>
+<script src="scripts/lazyload.min.js"></script>
+<script src="scripts/custom.js"></script>
+<script src="scripts/send-order.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var today, month, day_now, hours, minutes;
+
+        today = new Date();
+        month = today.getMonth();
+        day_now = today.getDate();
+        hours = today.getHours();
+        minutes = today.getMinutes();
+        
+        if ((month == 11 && day_now == 31 && (hours > 17 || (hours == 16 && minutes >= 30))) || (month == 0 && day_now < 4)){
+            
+            $.message = "Сейчас праздники, и до 4 января мы отдыхаем. Приносим извинения за возможные неудобства.<br /> Мы обязательно свяжемся с вами в понедельник, 4 января 2021 г. <br /><br /> С Новым годом!";
+            
+        } else {
+
+            if (hours > 18 || (hours == 17 && minutes >= 40) || hours < 9 || (hours == 8 && minutes <= 50)) {
+                $.message = "С 9 часов по московскому времени с Вами свяжется оператор!";
+            } else {
+                $.message = "Мы перезвоним Вам в течение 10 минут";
+            }
+        }
+
+        $('.order-form').submit(function (e) {
+
+            validate($(this));
+
+            if ($.errors == false) {
+                send_order($(this));
+                e.preventDefault();
+            } else {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+
+<script src="scripts/cbpFWTabs.js"></script>
+<script>
+    (function() {
+
+        [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+            new CBPFWTabs( el );
+        });
+
+    })();
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "image": "https://trubogib-gibbon.ru/images/header.png",
+        "name": "Ручной трубогиб Гиббон",
+        "description": "Трубогибы Гиббон. Купить по цене завода-производителя. Гнут все популярные ГОСТовские профили от 10х10 до 60х40. Ровные дуги с первого раза - линейка повторяемости и стопорная гайка. Японские подшипники, усиленный ходовой винт, валы из закаленной стали.",
+        "logo": "https://trubogib-gibbon.ru/images/logo.png",
+        "brand": "трубогиб Гиббон",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "bestRating": "5",
+            "ratingCount": "4",
+            "ratingValue": "5"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "RUB",
+            "highPrice": "7490.00",
+            "lowPrice": "6990.00",
+            "offerCount": "2",
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "name": "трубогиб Гиббон",
+                    "description": "<?= $offer_0 ?>",
+                    "image": "https://trubogib-gibbon.ru/images/gibbon.png",
+                    "price": "6990.00",
+                    "availability": "http://schema.org/InStock"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "трубогиб Гиббон Про",
+                    "description": "<?= $offer_1 ?>",
+                    "image": "https://trubogib-gibbon.ru/images/gibbon-pro.png",
+                    "price": "7490.00",
+                    "availability": "http://schema.org/InStock"
+                }
+            ]
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>
