@@ -184,7 +184,7 @@ if ($models_show == ''){
                     </a>
                     <p>Официальный сайт производителя</p>
                 </div>
-                <div class="menu-container">
+<!--                 <div class="menu-container">
                     <span>&nbsp;</span>
                     <ul class="menu columns">
                         <li><a class="button-scroll" href="#advantages">Преимущества</a></li>
@@ -198,7 +198,7 @@ if ($models_show == ''){
                             <a class="phone" href="tel:88003028415"><i class="fa fa-phone"></i> 8 800 302 84 15</a>
                         </li>                        
                     </ul>
-                </div>
+                </div> -->
                 <div class="phone-block">
                     <a class="phone" href="tel:88003028415">8 800 302 84 15</a>
                     <p>Звонок по России бесплатный</p>               
@@ -251,7 +251,7 @@ if ($models_show == ''){
                         </div>                         
                         <div class="button-container">
                             <div class="button-container">
-                                <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a>
+                                <a href="#order-modal" class="button fancybox" data-dop="adapter">Добавить в заказ</a>
                             </div>                            
                         </div>
                     </div>
@@ -284,7 +284,7 @@ if ($models_show == ''){
                         </div>                         
                         <div class="button-container">
                             <div class="button-container">
-                                <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a>
+                                <a href="#order-modal" class="button fancybox" data-dop="adapter">Добавить в заказ</a>
                             </div>                            
                         </div>
                     </div>
@@ -321,7 +321,7 @@ if ($models_show == ''){
                         </div>                         
                         <div class="button-container">
                             <div class="button-container">
-                                <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a>
+                                <a href="#order-modal" class="button fancybox" data-dop="adapter">Добавить в заказ</a>
                             </div>                            
                         </div>
                     </div>
@@ -357,7 +357,7 @@ if ($models_show == ''){
                         <div class="button-container">
                             <div class="button-container">
                                 <!-- <a href="#order-modal" class="button fancybox" data-dop="adapter">Заказать</a> Как должно быть-->
-                                <a href="#book-modal" class="button fancybox">Заказать</a>
+                                <a href="#book-modal" class="button fancybox">Добавить в заказ</a>
                             </div>                            
                         </div>
                     </div>
@@ -416,8 +416,36 @@ if ($models_show == ''){
 </div>
 
 
-<style>
+<!-- ========================================================= попап после добавления товара в заказ ================================= -->
 
+<!-- <div id="just-added" class="form-popup">
+    <div class="form-container">
+        <div class="form-title">
+            <p class="offer">Оформить заказ</p>
+        </div>   
+        <div class="form-body">
+            <form method="post" class="order-form">
+                <input type="hidden" name="url" value="<?= $url ?>">
+                <input type="hidden" class="model" value="<?= $model_name ?>" data-id="<?= $model_id ?>">  
+                <input class="custom-checkbox_input hidden" type="checkbox" data-dop="centroboy">
+                <input class="custom-checkbox_input hidden" type="checkbox" data-dop="adapter">
+                <input class="custom-checkbox_input hidden" type="checkbox" data-dop="ugol">
+                <label class="custom-data custom-name">
+                    <input type="text" name="name" placeholder="Ваше имя" autocomplete="off">
+                    <span></span>
+                </label>
+                <label class="custom-data custom-phone">
+                    <input type="text" name="phone" placeholder="Ваш телефон" autocomplete="off">
+                    <span></span>
+                </label>
+                <input type="submit" value="Отправить" class="button" >
+                <p class="info">Мы свяжемся с Вами в течение 5 минут и уточним детали доставки</p>
+            </form>
+        </div>
+    </div>
+</div> --> 
+
+<style>
     /*==========Book modal ===========================*/
 
     #book-modal  {
@@ -563,7 +591,6 @@ if ($models_show == ''){
         padding: 25px 30px;
         background-color: #e4e4e4;
         border-radius: 40px;
-        width: 90%;
         font-size: 21px;  
         line-height: 30px;
     }
@@ -838,6 +865,8 @@ if ($models_show == ''){
    }
 
 </style>
+
+
 
 
 <div id="order-modal" class="form-popup">
