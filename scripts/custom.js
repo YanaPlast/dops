@@ -418,7 +418,7 @@ function update_total(){
     $('#total-price .price').text(sum.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 "));
 }
 
-// slider доп товаров на странице допов
+/*// slider доп товаров на странице допов
 
 $('.slider-for').slick({
    slidesToShow: 1,
@@ -435,7 +435,7 @@ $('.slider-for').slick({
    dots: false,
    focusOnSelect: true,
    centerMode: true
- });
+ });*/
  
 /* $('a[data-slide]').click(function(e) {
    e.preventDefault();
@@ -445,8 +445,8 @@ $('.slider-for').slick({
 
 // на странице sale вставляем в попап имя допа 
 
-var dopName = $('#just-added .dop-name'),
-    dopButton = $('[href*="#just-added"]');
+var dopName = $('#book-modal .dop-name'),
+    dopButton = $('[href*="#book-modal"]');
 
    dopButton.on('click', function () {
 
