@@ -445,8 +445,8 @@ $('.slider-for').slick({
 
 // на странице sale вставляем в попап имя допа 
 
-var dopName = $('#book-modal .dop-name'),
-    dopButton = $('[href*="#book-modal"]');
+var dopName = $('#just-added .dop-name'),
+    dopButton = $('[href*="#just-added"]');
 
    dopButton.on('click', function () {
 
