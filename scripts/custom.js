@@ -452,7 +452,8 @@ var dopName = $('#just-added .dop-name'),
 
     dopName.text($(this).attr('data-dopName'));
     $(this).css({'font-size': '18px',
-                  'background-color': '#194d38'});
+                  'background-color': '#194d38'
+                  });
     this.innerHTML = "Товар добавлен в заказ";
 
    });
@@ -479,15 +480,16 @@ var plus = $('.adds-card .plus'),
     minus = $('.adds-card .minus');
 
 plus.on('click', function () {
-    let quant = +$(this).siblings($('.count')).val();
+    console.log($(this).siblings('.count'));
+    let quant = +$(this).siblings('.count').val();
     console.log(quant);
-    $(this).siblings($('.count')).val(quant + 1);
+    $(this).siblings('.count').val(quant + 1);
 });
 minus.on('click', function () {
-    let quant = +$(this).siblings($('.count')).val();
+    let quant = +$(this).siblings('.count').val();
     console.log(quant);
     if (quant > 1) {
-        $(this).siblings($('.count')).val(quant - 1);
+        $(this).siblings('.count').val(quant - 1);
     }
 });
 
