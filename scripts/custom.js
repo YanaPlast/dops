@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     
     var clickEvent = document.ontouchstart !== null ? 'click' : 'touchstart';
     
@@ -363,7 +364,7 @@ $(document).ready(function () {
         
     });    
     
-});
+
 
 function init_slider() {
     $('.mobile-slider').slick({
@@ -441,3 +442,77 @@ $('.slider-for').slick({
    var slideno = $(this).data('slide');
    $('.slider-nav').slick('slickGoTo', slideno - 1);
  });*/
+
+// на странице sale вставляем в попап имя допа 
+
+var dopName = $('#just-added .dop-name'),
+    dopButton = $('[href*="#just-added"]');
+
+   dopButton.on('click', function () {
+
+    dopName.text($(this).attr('data-dopName'));
+    $(this).css({'font-size': '18px',
+                  'background-color': '#194d38'});
+    this.innerHTML = "Товар добавлен в заказ";
+
+   });
+
+// на странице sale меняем кнопку "добавить в заказ" на товар добавлен + добавить еще один   
+
+/*var plus = $('.adds-card .plus'),
+    // count = $('.adds-card .count'),
+    minus = $('.adds-card .minus');*/
+
+
+/*plus.on('click', function () {
+    count = +$('.adds-card .count').val();
+    $('.adds-card .count').val(count + 1);
+});
+
+$('#minus').on('click', function () {
+    let quant = +$('#count').val();
+    if (quant > 1) {
+        $('#count').val(quant - 1);
+    }
+});*/
+var plus = $('.adds-card .plus'),
+    minus = $('.adds-card .minus');
+
+plus.on('click', function () {
+    let quant = +$(this).siblings($('.count')).val();
+    console.log(quant);
+    $(this).siblings($('.count')).val(quant + 1);
+});
+minus.on('click', function () {
+    let quant = +$(this).siblings($('.count')).val();
+    console.log(quant);
+    if (quant > 1) {
+        $(this).siblings($('.count')).val(quant - 1);
+    }
+});
+
+/*$('#plus').on('click', function () {
+    let quant = +$(this).siblings($('.count')).val();
+    console.log(quant);
+    $(this).siblings($('.count')).val(quant + 1);
+});
+$('#minus').on('click', function () {
+    let quant = +$(this).siblings($('.count')).val();
+    if (quant > 1) {
+        $(this).siblings($('.count')).val(quant - 1);
+    }
+});*/
+
+/*$('#plus').on('click', function () {
+    let quant = +$(this).siblings('.count').val();
+    console.log(quant);
+    $(this).siblings('.count').val(quant + 1);
+});
+$('#minus').on('click', function () {
+    let quant = +$(this).siblings('.count').val();
+    if (quant > 1) {
+        $(this).siblings('.count').val(quant - 1);
+    }
+});*/
+
+});
